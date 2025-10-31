@@ -1,0 +1,32 @@
+
+@use "sass:map";
+@use "./variables" as *;
+@use "./maps" as *;
+@use "./functions" as *;
+@use "./mixins" as *;
+
+
+%btn {
+  border-radius: space("xl");
+  color: $white;
+  background: transparent; // placeholder, define per variant
+  padding: space("sm") space("md");
+  width: 100%;
+  max-width: 300px;
+  box-shadow: $shadow-light;
+  font-weight: weight("semi-bold");
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    box-shadow: $shadow-medium;
+    transform: translateY(-4px);
+  }
+
+  @include min("md") {
+    width: auto;
+    padding: space("sm") space("lg");
+    max-width: 200px;
+  }
+}

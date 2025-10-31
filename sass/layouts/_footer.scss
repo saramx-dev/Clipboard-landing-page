@@ -1,0 +1,49 @@
+@use "../abstracts/index" as *;
+.footer {
+  width: 100%;
+  @include flex(center, center, column, space("xl"));
+  margin: space("3xl") auto 0 auto;
+  background-color: $Gray-100;
+  padding: space("xl");
+  text-align: center;
+
+  .footer__logo {
+    width: 25%;
+    max-width: 70px;
+  }
+
+  .footer__nav {
+    margin: space("md") auto;
+
+    .footer__list {
+      @include flex(center, center, column, space("lg"));
+      a {
+        color: $Gray-500;
+        font-weight: weight("semi-bold");
+        // Consider using fluid-font for responsive size
+        font-size: font-sizes("sm");
+      }
+
+      @include min("md") {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .footer__social {
+    margin-inline: auto;
+
+    .footer__social-list {
+      @include flex(center, center, row, space("2xl"));
+      color: $Gray-700;
+      .fa-brands {
+        font-size: space("lg");
+      }
+    }
+  }
+
+  @include min("md") {
+    flex-direction: row;
+    padding: space("xl") space("4xl");
+  }
+}

@@ -1,0 +1,75 @@
+
+
+// 1️⃣ Load Sass built-in map module
+@use "sass:map";
+
+// 2️⃣ Import project modules
+@use "./variables" as *;
+@use "./maps" as *;
+@use "./functions" as *;
+//@use "./placeholders" as *;
+
+
+@mixin flex($align-items,$justify-content, $direction, $gap){
+  display: flex;
+  align-items:$align-items ;
+  justify-content:$justify-content ;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+
+/* 
+
+@mixin btn-style($bg){
+  background-color: $bg;
+  @extend %btn;
+}
+
+ */
+
+
+
+
+// 📱 Responsive Layout Mixins.
+// -----------------------------------------------
+// 🧩 MAX-WIDTH MIXIN
+@mixin max($size) {
+  $bp: map.get($breakpoints, $size);
+  @if $bp == null {
+    @warn "⚠️ Breakpoint `#{$size}` not found! Available keys: #{map.keys($breakpoints)}";
+  } @else {
+    @media (max-width: #{$bp}) {
+      @content;
+    }
+  }
+}
+
+
+// 🧩 MIN-WIDTH MIXIN
+
+@mixin min($size) {
+  $bp: map.get($breakpoints, $size);
+  @if $bp == null {
+    @warn "⚠️ Breakpoint `#{$size}` not found! Available keys: #{map.keys($breakpoints)}";
+  } @else {
+    @media (min-width: #{$bp}) {
+      @content;
+    }
+  }
+}
+
+
+// 🧩 BETWEEN MIXIN
+@mixin between($min, $max) {
+  $bp-min: map.get($breakpoints, $min);
+  $bp-max: map.get($breakpoints, $max);
+
+  @if $bp-min == null or $bp-max == null {
+    @warn "⚠️ Breakpoint range not found! Available keys: #{map.keys($breakpoints)}";
+  } @else {
+    @media (min-width: #{$bp-min}) and (max-width: #{$bp-max}) {
+      @content;
+    }
+  }
+}

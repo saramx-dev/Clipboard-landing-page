@@ -1,0 +1,39 @@
+@use "../abstracts/index" as *;
+.header {
+  background-image: url("/images/bg-header-mobile.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-attachment: fixed; // optional, if fits your design
+  background-position: top center;
+  @include flex(center, center, column, space("3xl"));
+  margin: 0 auto;
+  text-align: center;
+  .header__logo {
+    margin-block-start: space("4xl");
+  }
+  .header__content {
+    width: 100%;
+    max-width: 700px;
+    padding: space("lg");
+    & > * + * {
+      margin-top: space("lg");
+    }
+    .header__title{
+      font-size: fluid-font(font-size("xxl"), calc(2vw + .8rem), font-size("display"));
+    }
+    .header__desc {
+      padding: 0 space("xxs");
+       font-size: fluid-font(font-size("md"), calc(1vw + .3rem), font-size("lg"));
+    }
+    .header__buttons {
+      @include flex(center, center, column, space("md"));
+      /* Responsive */
+      @include min("md") {
+        flex-direction: row;
+      }
+    }
+  }
+  @include min("lg") {
+    background-image: url("/images/bg-header-desktop.png");
+  }
+}

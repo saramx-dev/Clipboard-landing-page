@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Modern SCSS Reset
+   --------------------------------------------------------------------------
+   A lightweight and opinionated CSS reset for consistent styling across browsers
+   ========================================================================== */
+
+/* 1. Inherit box-sizing for more predictable layouts */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Improve default text rendering and body defaults */
+html {
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in iOS Safari */
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* 4. Remove list styles and reset margins */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 5. Remove default text decoration from anchors */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* 6. Remove default margin on common text elements */
+:where(h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
+  margin: 0;
+}
+
+/* 7. Set shorter line height for headings and form elements */
+:where(h1, h2, h3, h4, h5, h6, button, input, select, textarea) {
+  line-height: 1.1;
+}
+
+/* 8. Media elements adjustments */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 9. Inherit fonts for form elements */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 10. Normalize table behavior */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-align: left;
+}
+
+
+/* 11. Remove image borders inside anchors */
+a img {
+  border: none;
+}
+
+/* 12. Optional: default cursor for buttons */
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* 13. Remove animations and transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}

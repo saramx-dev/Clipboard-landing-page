@@ -1,0 +1,36 @@
+@use "./base/reset" as *;
+@use "./abstracts/index" as *;
+@use "layouts";
+@use "./components/buttons" as *;
+@use "pages";
+
+body {
+  font-family: $font-family;
+  font-weight: weight("regular");
+  font-size: font-sizes("md");
+  color: $Gray-500;
+  line-height: 1.6;
+  & > * + * {
+    margin-block-start: space("3xl");
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: weight("semi-bold");
+  color: $Gray-700;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: fluid-font(font-size("xl"), calc(2vw + 1.30rem), font-size("xxl"));
+  margin-bottom: space("lg");
+}
+h3 {
+  font-size: fluid-font(font-size("lg"), calc(2vw + 1em), font-size("xl"));
+   margin-bottom: space("sm");
+}

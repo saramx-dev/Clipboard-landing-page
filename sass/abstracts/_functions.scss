@@ -1,0 +1,55 @@
+// ================================================
+// 🔧 SCSS Utility Functions
+// ================================================
+
+// 1️⃣ Load the built-in map module
+@use "sass:map";
+
+// 2️⃣ Import your design token modules
+@use "./variables" as *;
+@use "./maps" as *;
+
+// -----------------------------------------------
+// 🧱 SPACING FUNCTION
+// Returns spacing values by key (e.g., "lg", "md")
+// -----------------------------------------------
+@function space($key) {
+  @if map.has-key($spacing, $key) {
+    @return map.get($spacing, $key);
+  } @else {
+    @error "❌ Unknown spacing key: #{$key}. Available keys: #{map.keys($spacing)}";
+  }
+}
+
+// -----------------------------------------------
+// 🔤 FONT SIZE FUNCTION
+// Returns font-size values by key (e.g., "lg", "sm")
+// -----------------------------------------------
+@function font-size($key) {
+  @if map.has-key($font-sizes, $key) {
+    @return map.get($font-sizes, $key);
+  } @else {
+    @error "❌ Unknown font-size key: #{$key}. Available keys: #{map.keys($font-sizes)}";
+  }
+}
+
+// -----------------------------------------------
+// 🏋️ FONT WEIGHT FUNCTION
+// Returns font-weight values by key (e.g., "bold", "light")
+// -----------------------------------------------
+@function weight($key) {
+  @if map.has-key($font-weights, $key) {
+    @return map.get($font-weights, $key);
+  } @else {
+    @error "❌ Unknown font-weight key: #{$key}. Available keys: #{map.keys($font-weights)}";
+  }
+}
+
+// -----------------------------------------------
+// 📱 FLUID FONT SIZE FUNCTION
+// Generates fluid typography with clamp()
+// Example: font-size: fluid-font(1rem, 2vw, 2rem);
+// -----------------------------------------------
+@function fluid-font($min, $vw, $max) {
+  @return clamp(#{$min}, #{$vw}, #{$max});
+}

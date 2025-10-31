@@ -1,0 +1,28 @@
+@use "sass:color";
+@use '../abstracts/index' as *;
+
+// Base button style (extends the placeholder)
+.btn {
+  @extend %btn;
+}
+
+// Variants
+.btn--primary {
+  background-color: $Green-500;
+
+  &:hover,
+  &:focus {
+background-color: color.scale($Green-500, $lightness: -15%, $space: hsl);
+
+  }
+}
+
+.btn--secondary {
+  background-color: $Blue-100;
+
+  &:hover,
+  &:focus {
+background-color: color.scale($Blue-100, $lightness: -15%, $space: hsl);
+
+  }
+}
