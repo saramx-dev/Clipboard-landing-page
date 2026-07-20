@@ -24,8 +24,8 @@ The goal was to create a clean, responsive, and visually appealing front-end sol
 
 ## Live Demo & Solution
 
-- **Live Demo:** [live site]()  
-- **Solution Repository:** [solution]()  
+- **Live Demo:** [live site](https://saramx-dev.github.io/Clipboard-landing-page/)  
+- **Solution Repository:** [solution](https://github.com/saramx-dev/Clipboard-landing-page)  
 
 ---
 
